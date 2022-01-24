@@ -1,9 +1,13 @@
 import { Camera, Scene, Renderer, Objects } from "./partials";
 
 export function GlobeInit(container) {
+  let objects = Objects();
   let renderer = Renderer(container, animation);
   let { camera, cameraControls } = Camera(renderer.domElement);
-  let scene = Scene({ camera: camera, objects: [Objects.globe] });
+  let scene = Scene({
+    camera: camera,
+    objects: [...objects],
+  });
 
   container.appendChild(renderer.domElement);
 
